@@ -18,7 +18,7 @@ namespace Expense_Tracker.Controllers
         public async Task<ActionResult> Index()
         {
             //Last 7 Days
-            DateTime StartDate = DateTime.Today.AddDays(-6);
+            DateTime StartDate = DateTime.Today.AddDays(-50);
             DateTime EndDate = DateTime.Today;
 
             List<Transaction> SelectedTransactions = await _context.Transactions
@@ -82,7 +82,7 @@ namespace Expense_Tracker.Controllers
                 .ToList();
 
             //Combine Income & Expense
-            string[] Last7Days = Enumerable.Range(0, 7)
+            string[] Last7Days = Enumerable.Range(0, 50)
                 .Select(i => StartDate.AddDays(i).ToString("dd-MMM"))
                 .ToArray();
 
